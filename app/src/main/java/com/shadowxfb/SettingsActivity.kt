@@ -2,7 +2,6 @@ package com.shadowxfb
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +24,7 @@ class SettingsActivity : AppCompatActivity() {
 
         setupToolbar()
         setupThemeMode()
-        setupLanguage()
+        // ❌ REMOVED: setupLanguage()
         setupOfflineMode()
         setupOfflineLimits()
         setupBackgroundPlayback()
@@ -90,34 +89,7 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupLanguage() {
-        val layout = findViewById<LinearLayout>(R.id.layoutLanguage)
-        val textLang = findViewById<TextView>(R.id.textLanguageValue)
-        
-        val currentLang = PreferencesHelper.getLanguage(this)
-        textLang.text = when (currentLang) {
-            "bn" -> "বাংলা"
-            "hi" -> "हिन्दी"
-            else -> "English"
-        }
-
-        layout.setOnClickListener {
-            val options = arrayOf("English", "বাংলা", "हिन्दी")
-            val langCodes = arrayOf("en", "bn", "hi")
-            
-            MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.select_language))
-                .setItems(options) { _, which ->
-                    val langCode = langCodes[which]
-                    PreferencesHelper.setLanguage(this, langCode)
-                    textLang.text = options[which]
-                    
-                    LanguageManager.setLocale(this, langCode)
-                    recreate()
-                }
-                .show()
-        }
-    }
+    // ❌ REMOVED: setupLanguage() function
 
     private fun setupOfflineMode() {
         val switchOffline = findViewById<SwitchMaterial>(R.id.switchOfflineMode)
@@ -131,7 +103,6 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setupOfflineLimits() {
-        // Reel Limit
         val seekReel = findViewById<SeekBar>(R.id.seekReelLimit)
         val textReel = findViewById<TextView>(R.id.textReelLimit)
         val currentReelLimit = PreferencesHelper.getReelLimit(this)
@@ -153,7 +124,6 @@ class SettingsActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        // News Limit
         val seekNews = findViewById<SeekBar>(R.id.seekNewsLimit)
         val textNews = findViewById<TextView>(R.id.textNewsLimit)
         val currentNewsLimit = PreferencesHelper.getNewsLimit(this)
@@ -274,7 +244,6 @@ class SettingsActivity : AppCompatActivity() {
                     • Ad Blocking
                     • Offline Mode (300 Reels, 300 News)
                     • Dark/Light Theme
-                    • Multi Language Support
                     • Messenger Integration
                     • Background Playback
                     • Download Manager
