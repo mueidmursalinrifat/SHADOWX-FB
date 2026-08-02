@@ -11,7 +11,6 @@
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
     <application
         android:allowBackup="true"
@@ -21,13 +20,11 @@
         android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
-        android:dataExtractionRules="@xml/backup_rules"
-        android:fullBackupContent="@xml/backup_rules"
         tools:targetApi="31">
 
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|locale|uiMode"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
             android:exported="true"
             android:screenOrientation="portrait"
             android:launchMode="singleTop">
@@ -45,7 +42,7 @@
 
         <activity
             android:name=".SettingsActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|locale|uiMode"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.ShadowXFB" />
 
