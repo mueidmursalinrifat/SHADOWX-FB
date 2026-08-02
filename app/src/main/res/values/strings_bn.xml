@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SHADOWX-FB</string>
+    
+    <string name="settings">সেটিংস</string>
+    <string name="theme">থিম</string>
+    <string name="dark">ডার্ক</string>
+    <string name="light">লাইট</string>
+    <string name="system_default">সিস্টেম ডিফল্ট</string>
+    <string name="select_theme">থিম নির্বাচন করুন</string>
+    
+    <string name="language">ভাষা</string>
+    <string name="select_language">ভাষা নির্বাচন করুন</string>
+    
+    <string name="offline_mode">অফলাইন মোড</string>
+    <string name="offline_on">অফলাইন মোড চালু</string>
+    <string name="offline_off">অফলাইন মোড বন্ধ</string>
+    
+    <string name="reels_limit">রিলস: %d টি</string>
+    <string name="news_limit">নিউজ ফিড: %d টি</string>
+    
+    <string name="background_playback">ব্যাকগ্রাউন্ড প্লেব্যাক</string>
+    <string name="bg_playback_on">ব্যাকগ্রাউন্ড প্লেব্যাক চালু</string>
+    <string name="bg_playback_off">ব্যাকগ্রাউন্ড প্লেব্যাক বন্ধ</string>
+    
+    <string name="ad_blocking">এড ব্লক</string>
+    <string name="ad_block_on">এড ব্লক চালু</string>
+    <string name="ad_block_off">এড ব্লক বন্ধ</string>
+    
+    <string name="hide_options">নেভিগেশন অপশন লুকান</string>
+    <string name="marketplace">মার্কেটপ্লেস</string>
+    <string name="groups">গ্রুপ</string>
+    <string name="pages">পেজ</string>
+    <string name="notifications">নোটিফিকেশন</string>
+    <string name="events">ইভেন্ট</string>
+    <string name="watch">ওয়াচ</string>
+    <string name="saved">সেভড</string>
+    
+    <string name="clear_offline_data">অফলাইন ডাটা ক্লিয়ার</string>
+    <string name="clear_offline_title">অফলাইন ডাটা ক্লিয়ার</string>
+    <string name="clear_offline_message">সব অফলাইন রিলস, নিউজ ফিড ও স্টোরি ডিলিট করবেন?</string>
+    <string name="offline_cleared">অফলাইন ডাটা ক্লিয়ার হয়েছে</string>
+    
+    <string name="about">সম্পর্কে</string>
+    <string name="developer">ডেভেলপার</string>
+    
+    <string name="yes">হ্যাঁ</string>
+    <string name="no">না</string>
+    <string name="ok">ঠিক আছে</string>
+    <string name="cancel">বাতিল</string>
+    
+    <string name="offline_mode_active">📴 অফলাইন মোড সক্রিয়</string>
+    <string name="offline_mode_activated">📖 অফলাইন মোড চালু হয়েছে</string>
+    <string name="no_offline_content">❌ কোনো অফলাইন কন্টেন্ট নেই</string>
+    <string name="no_internet">⚠️ ইন্টারনেট সংযোগ নেই</string>
+    <string name="internet_connected">🌐 ইন্টারনেট সংযুক্ত হয়েছে</string>
+    <string name="loading_facebook">🌐 ফেসবুক লোড হচ্ছে...</string>
+    
+    <string name="open_messenger">মেসেঞ্জার খুলুন</string>
+    <string name="refresh">রিফ্রেশ</string>
+    <string name="clear_offline">অফলাইন ক্লিয়ার</string>
+    <string name="clear_cache">ক্যাশে ক্লিয়ার</string>
+    
+    <string name="permission_denied">অনুমতি প্রত্যাখ্যান। কিছু ফিচার কাজ নাও করতে পারে।</string>
+    <string name="no_url_to_download">ডাউনলোড করার জন্য URL নেই</string>
+    <string name="ad_blocked">বিজ্ঞাপন ব্লক</string>
+    <string name="refreshing">রিফ্রেশ হচ্ছে...</string>
+    <string name="cache_cleared">ক্যাশে ক্লিয়ার হয়েছে</string>
+</resources>

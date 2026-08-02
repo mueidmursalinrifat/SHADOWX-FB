@@ -1,0 +1,162 @@
+package com.shadowxfb
+
+import android.content.Context
+import android.webkit.WebView
+import com.shadowxfb.utils.PreferencesHelper
+import java.io.File
+import kotlinx.coroutines.*
+
+class OfflineManager(private val context: Context) {
+    private val offlineDir = File(context.filesDir, "offline")
+    private var reelLimit = PreferencesHelper.getReelLimit(context)
+    private var newsLimit = PreferencesHelper.getNewsLimit(context)
+    
+    init {
+        if (!offlineDir.exists()) {
+            offlineDir.mkdirs()
+        }
+    }
+
+    companion object {
+        private var reelLimitStatic = 300
+        private var newsLimitStatic = 300
+        
+        fun updateReelLimit(limit: Int) {
+            reelLimitStatic = limit
+        }
+        
+        fun updateNewsLimit(limit: Int) {
+            newsLimitStatic = limit
+        }
+    }
+
+    fun startBackgroundCaching(webView: WebView?) {
+        if (webView == null) return
+        
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                cacheReels(webView)
+                cacheNewsFeed(webView)
+                cacheStories(webView)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private suspend fun cacheReels(webView: WebView) {
+        withContext(Dispatchers.IO) {
+            val reels = (1..reelLimitStatic).map { "Reel $it" }
+            saveToFile("reels.txt", reels.joinToString("\n"))
+        }
+    }
+
+    private suspend fun cacheNewsFeed(webView: WebView) {
+        withContext(Dispatchers.IO) {
+            val posts = (1..newsLimitStatic).map { "News Post $it" }
+            saveToFile("feed.txt", posts.joinToString("\n"))
+        }
+    }
+
+    private suspend fun cacheStories(webView: WebView) {
+        withContext(Dispatchers.IO) {
+            val stories = (1..50).map { "Story $it" }
+            saveToFile("stories.txt", stories.joinToString("\n"))
+        }
+    }
+
+    private fun saveToFile(fileName: String, content: String) {
+        try {
+            File(offlineDir, fileName).writeText(content)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun hasOfflineContent(): Boolean {
+        return offlineDir.exists() && offlineDir.listFiles()?.isNotEmpty() == true
+    }
+
+    fun getOfflineIndex(): String {
+        val indexFile = File(offlineDir, "index.html")
+        try {
+            val reels = File(offlineDir, "reels.txt").readText()
+            val feed = File(offlineDir, "feed.txt").readText()
+            val stories = File(offlineDir, "stories.txt").readText()
+            
+            indexFile.writeText("""
+                <html>
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>SHADOWX-FB Offline</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; background: #1a1a1a; color: #e0e0e0; padding: 20px; }
+                            h1 { color: #4CAF50; }
+                            h2 { color: #2196F3; margin-top: 30px; }
+                            .content { background: #2d2d2d; padding: 15px; border-radius: 8px; margin: 10px 0; }
+                            .count { color: #FF9800; }
+                            .footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #404040; text-align: center; color: #888; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>📖 SHADOWX-FB Offline Mode</h1>
+                        <p>You are browsing offline content</p>
+                        
+                        <h2>🎬 Reels (<span class="count">${reels.lines().size}</span>)</h2>
+                        <div class="content">
+                            <pre>${reels.take(500)}</pre>
+                        </div>
+                        
+                        <h2>📰 News Feed (<span class="count">${feed.lines().size}</span>)</h2>
+                        <div class="content">
+                            <pre>${feed.take(500)}</pre>
+                        </div>
+                        
+                        <h2>📸 Stories (<span class="count">${stories.lines().size}</span>)</h2>
+                        <div class="content">
+                            <pre>${stories.take(500)}</pre>
+                        </div>
+                        
+                        <div class="footer">
+                            <p>SHADOWX-FB v2.0 | Offline Mode</p>
+                            <p>Developed by Mueid Mursalin Rifat</p>
+                        </div>
+                    </body>
+                </html>
+            """.trimIndent())
+        } catch (e: Exception) {
+            indexFile.writeText("""
+                <html>
+                    <head><title>Offline</title></head>
+                    <body style="background:#1a1a1a;color:#e0e0e0;text-align:center;padding:50px;">
+                        <h1>📖 No Offline Content</h1>
+                        <p>Please connect to internet and refresh</p>
+                    </body>
+                </html>
+            """.trimIndent())
+        }
+        return indexFile.absolutePath
+    }
+
+    fun clearAllOfflineData() {
+        try {
+            offlineDir.deleteRecursively()
+            offlineDir.mkdirs()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    companion object {
+        fun clearAllData(context: Context) {
+            val offlineDir = File(context.filesDir, "offline")
+            try {
+                offlineDir.deleteRecursively()
+                offlineDir.mkdirs()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+}

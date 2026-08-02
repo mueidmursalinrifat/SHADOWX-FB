@@ -1,0 +1,53 @@
+SHADOWX-FB/
+├── .github/
+│   └── workflows/
+│       └── build-apk.yml
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/shadowxfb/
+│   │   │   │   ├── MainActivity.kt
+│   │   │   │   ├── SettingsActivity.kt
+│   │   │   │   ├── OfflineManager.kt
+│   │   │   │   ├── AdBlocker.kt
+│   │   │   │   ├── LanguageManager.kt
+│   │   │   │   ├── DownloadManager.kt
+│   │   │   │   └── utils/
+│   │   │   │       ├── NetworkUtils.kt
+│   │   │   │       └── PreferencesHelper.kt
+│   │   │   ├── res/
+│   │   │   │   ├── drawable/
+│   │   │   │   │   ├── ic_launcher.xml
+│   │   │   │   │   ├── ic_messenger.xml
+│   │   │   │   │   ├── ic_settings.xml
+│   │   │   │   │   └── ic_refresh.xml
+│   │   │   │   ├── layout/
+│   │   │   │   │   ├── activity_main.xml
+│   │   │   │   │   └── activity_settings.xml
+│   │   │   │   ├── menu/
+│   │   │   │   │   └── main_menu.xml
+│   │   │   │   ├── values/
+│   │   │   │   │   ├── strings.xml
+│   │   │   │   │   ├── strings_bn.xml
+│   │   │   │   │   ├── strings_hi.xml
+│   │   │   │   │   ├── colors.xml
+│   │   │   │   │   ├── themes.xml
+│   │   │   │   │   └── dimens.xml
+│   │   │   │   └── xml/
+│   │   │   │       └── backup_rules.xml
+│   │   │   └── AndroidManifest.xml
+│   │   └── assets/
+│   │       └── adblock_rules.txt
+│   ├── build.gradle
+│   └── proguard-rules.pro
+├── gradle/
+│   └── wrapper/
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── build.gradle
+├── settings.gradle
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── README.md
+└── .gitignore
