@@ -9,25 +9,19 @@
     <string name="light">Light</string>
     <string name="system_default">System Default</string>
     <string name="select_theme">Select Theme</string>
-    
     <string name="language">Language</string>
     <string name="select_language">Select Language</string>
-    
     <string name="offline_mode">Offline Mode</string>
     <string name="offline_on">Offline Mode ON</string>
     <string name="offline_off">Offline Mode OFF</string>
-    
     <string name="reels_limit">Reels: %d</string>
     <string name="news_limit">News Feed: %d</string>
-    
     <string name="background_playback">Background Playback</string>
     <string name="bg_playback_on">Background Playback ON</string>
     <string name="bg_playback_off">Background Playback OFF</string>
-    
     <string name="ad_blocking">Ad Blocking</string>
     <string name="ad_block_on">Ad Block ON</string>
     <string name="ad_block_off">Ad Block OFF</string>
-    
     <string name="hide_options">Hide Navigation Options</string>
     <string name="marketplace">Marketplace</string>
     <string name="groups">Groups</string>
@@ -36,15 +30,12 @@
     <string name="events">Events</string>
     <string name="watch">Watch</string>
     <string name="saved">Saved</string>
-    
     <string name="clear_offline_data">Clear Offline Data</string>
     <string name="clear_offline_title">Clear Offline Data</string>
     <string name="clear_offline_message">Delete all offline reels, news feed and stories?</string>
     <string name="offline_cleared">Offline data cleared</string>
-    
     <string name="about">About</string>
     <string name="developer">Developer</string>
-    
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="ok">OK</string>
