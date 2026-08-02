@@ -37,11 +37,17 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    # ✅ GENERATE DEBUG KEYSTORE
+    # ✅ GENERATE DEBUG KEYSTORE (only if one isn't already committed)
     - name: Generate Debug Keystore
       run: |
-        keytool -genkey -v -keystore app/debug.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 \
-          -storepass android -keypass android -dname "CN=Android Debug, O=Android, C=US"
+        if [ ! -f app/debug.keystore ]; then
+          echo "⚠️ debug.keystore not found! Generating..."
+          keytool -genkey -v -keystore app/debug.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 \
+            -storepass android -keypass android -dname "CN=Android Debug, O=Android, C=US"
+          echo "✅ debug.keystore generated!"
+        else
+          echo "✅ debug.keystore already exists, skipping generation."
+        fi
 
     - name: Download gradle-wrapper.jar if missing
       run: |
