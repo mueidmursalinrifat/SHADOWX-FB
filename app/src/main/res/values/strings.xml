@@ -42,12 +42,12 @@
     <string name="cancel">Cancel</string>
     
     <!-- Messages -->
-    <string name="offline_mode_active">📴 Offline Mode Active</string>
-    <string name="offline_mode_activated">📖 Offline Mode Activated</string>
-    <string name="no_offline_content">❌ No offline content available</string>
-    <string name="no_internet">⚠️ No Internet Connection</string>
-    <string name="internet_connected">🌐 Internet Connected</string>
-    <string name="loading_facebook">🌐 Loading Facebook...</string>
+    <string name="offline_mode_active">Offline Mode Active</string>
+    <string name="offline_mode_activated">Offline Mode Activated</string>
+    <string name="no_offline_content">No offline content available</string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="internet_connected">Internet Connected</string>
+    <string name="loading_facebook">Loading Facebook...</string>
     
     <!-- Menu -->
     <string name="open_messenger">Open Messenger</string>
