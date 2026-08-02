@@ -4,12 +4,6 @@ on:
   push:
     branches: [ main, master ]
   pull_request:
-name: Build SHADOWX-FB APK
-
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
     branches: [ main, master ]
   workflow_dispatch:
     inputs:
@@ -29,13 +23,6 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
-
-    # ✅ FIX: Delete .bak files before building
-    - name: Remove .bak files
-      run: |
-        echo "🔍 Finding .bak files..."
-        find . -name "*.bak" -type f -print -delete
-        echo "✅ .bak files removed!"
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
