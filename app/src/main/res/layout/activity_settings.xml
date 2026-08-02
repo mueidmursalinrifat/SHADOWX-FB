@@ -55,37 +55,7 @@
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider" />
 
-            <!-- Language -->
-            <LinearLayout
-                android:id="@+id/layoutLanguage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/language"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/textLanguageValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="English"
-                    android:textSize="14sp"
-                    android:textColor="?android:attr/textColorSecondary" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+            <!-- ❌ REMOVED: Language section -->
 
             <!-- Offline Mode -->
             <LinearLayout
