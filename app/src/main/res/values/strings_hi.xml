@@ -8,25 +8,19 @@
     <string name="light">लाइट</string>
     <string name="system_default">सिस्टम डिफ़ॉल्ट</string>
     <string name="select_theme">थीम चुनें</string>
-    
     <string name="language">भाषा</string>
     <string name="select_language">भाषा चुनें</string>
-    
     <string name="offline_mode">ऑफलाइन मोड</string>
     <string name="offline_on">ऑफलाइन मोड चालू</string>
     <string name="offline_off">ऑफलाइन मोड बंद</string>
-    
     <string name="reels_limit">रील्स: %d</string>
     <string name="news_limit">न्यूज़ फीड: %d</string>
-    
     <string name="background_playback">बैकग्राउंड प्लेबैक</string>
     <string name="bg_playback_on">बैकग्राउंड प्लेबैक चालू</string>
     <string name="bg_playback_off">बैकग्राउंड प्लेबैक बंद</string>
-    
     <string name="ad_blocking">विज्ञापन ब्लॉक</string>
     <string name="ad_block_on">विज्ञापन ब्लॉक चालू</string>
     <string name="ad_block_off">विज्ञापन ब्लॉक बंद</string>
-    
     <string name="hide_options">नेविगेशन विकल्प छुपाएं</string>
     <string name="marketplace">मार्केटप्लेस</string>
     <string name="groups">समूह</string>
@@ -35,15 +29,12 @@
     <string name="events">इवेंट्स</string>
     <string name="watch">वॉच</string>
     <string name="saved">सेव्ड</string>
-    
     <string name="clear_offline_data">ऑफलाइन डेटा साफ़ करें</string>
     <string name="clear_offline_title">ऑफलाइन डेटा साफ़ करें</string>
     <string name="clear_offline_message">सभी ऑफलाइन रील्स, न्यूज़ फीड और स्टोरीज़ हटाएं?</string>
     <string name="offline_cleared">ऑफलाइन डेटा साफ़ हो गया</string>
-    
     <string name="about">के बारे में</string>
     <string name="developer">डेवलपर</string>
-    
     <string name="yes">हाँ</string>
     <string name="no">नहीं</string>
     <string name="ok">ठीक है</string>
