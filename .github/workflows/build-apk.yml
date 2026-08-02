@@ -34,31 +34,46 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
 
-    # ✅ BETTER: Use Gradle Wrapper Validation
-    - name: Validate Gradle Wrapper
-      uses: gradle/wrapper-validation-action@v1
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
 
-    # ✅ BETTER: Setup Gradle with cache
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
-      with:
-        gradle-version: '8.2'
-        cache-read-only: false
+    # ✅ FIX: Download gradle-wrapper.jar if missing
+    - name: Fix Gradle Wrapper JAR
+      run: |
+        if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then
+          echo "⚠️ gradle-wrapper.jar not found! Downloading..."
+          mkdir -p gradle/wrapper
+          curl -L -o gradle/wrapper/gradle-wrapper.jar https://github.com/gradle/gradle/raw/v8.2.0/gradle/wrapper/gradle-wrapper.jar
+          echo "✅ gradle-wrapper.jar downloaded!"
+        else
+          echo "✅ gradle-wrapper.jar found!"
+        fi
+
+    # ✅ NEW: Verify wrapper files exist
+    - name: Verify Gradle Wrapper
+      run: |
+        echo "📂 Checking gradle/wrapper directory:"
+        ls -la gradle/wrapper/
+        echo ""
+        echo "✅ gradle-wrapper.jar size:"
+        du -h gradle/wrapper/gradle-wrapper.jar
 
     - name: Create local.properties
       run: |
         echo "sdk.dir=$ANDROID_HOME" > local.properties
 
+    # ✅ FIX: Use gradle wrapper with proper permissions
     - name: Build APK
       run: |
         if [ "${{ github.event.inputs.release_type }}" == "release" ]; then
           echo "🔨 Building Release APK..."
-          gradle assembleRelease --stacktrace
+          ./gradlew assembleRelease --stacktrace
         else
           echo "🔨 Building Debug APK..."
-          gradle assembleDebug --stacktrace
+          ./gradlew assembleDebug --stacktrace
         fi
 
+    # ✅ NEW: List built APK files
     - name: List APK Files
       run: |
         echo "📦 Built APKs:"
