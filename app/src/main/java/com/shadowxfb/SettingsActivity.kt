@@ -24,7 +24,6 @@ class SettingsActivity : AppCompatActivity() {
 
         setupToolbar()
         setupThemeMode()
-        // ❌ REMOVED: setupLanguage()
         setupOfflineMode()
         setupOfflineLimits()
         setupBackgroundPlayback()
@@ -88,8 +87,6 @@ class SettingsActivity : AppCompatActivity() {
                 .show()
         }
     }
-
-    // ❌ REMOVED: setupLanguage() function
 
     private fun setupOfflineMode() {
         val switchOffline = findViewById<SwitchMaterial>(R.id.switchOfflineMode)
