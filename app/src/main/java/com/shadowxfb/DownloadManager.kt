@@ -1,6 +1,6 @@
 package com.shadowxfb
 
-import android.app.DownloadManager
+import android.app.DownloadManager as SystemDownloadManager
 import android.content.Context
 import android.net.Uri
 import android.os.Environment
@@ -9,22 +9,22 @@ import android.widget.Toast
 import androidx.core.net.toUri
 
 class DownloadManager(private val context: Context) {
-    private val downloadManager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+    private val downloadManager = context.getSystemService(Context.DOWNLOAD_SERVICE) as SystemDownloadManager
 
     fun downloadFile(url: String) {
         try {
             val fileName = URLUtil.guessFileName(url, null, null)
-            val request = DownloadManager.Request(url.toUri()).apply {
+            val request = SystemDownloadManager.Request(url.toUri()).apply {
                 setTitle(fileName)
                 setDescription("Downloading from SHADOWX-FB")
-                setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                setNotificationVisibility(SystemDownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                 setDestinationInExternalPublicDir(
                     Environment.DIRECTORY_DOWNLOADS,
                     fileName
                 )
                 setAllowedNetworkTypes(
-                    DownloadManager.Request.NETWORK_WIFI or 
-                    DownloadManager.Request.NETWORK_MOBILE
+                    SystemDownloadManager.Request.NETWORK_WIFI or 
+                    SystemDownloadManager.Request.NETWORK_MOBILE
                 )
                 setMimeType(guessMimeType(url))
             }
