@@ -37,6 +37,12 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    # ✅ GENERATE DEBUG KEYSTORE
+    - name: Generate Debug Keystore
+      run: |
+        keytool -genkey -v -keystore app/debug.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 \
+          -storepass android -keypass android -dname "CN=Android Debug, O=Android, C=US"
+
     - name: Download gradle-wrapper.jar if missing
       run: |
         if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then
@@ -47,6 +53,10 @@ jobs:
         else
           echo "✅ gradle-wrapper.jar found!"
         fi
+
+    - name: Verify Gradle Wrapper
+      run: |
+        ls -la gradle/wrapper/
 
     - name: Create local.properties
       run: |
@@ -90,9 +100,9 @@ jobs:
         echo "- ✅ Ad Blocking" >> release_notes.md
         echo "- ✅ Offline Mode (300 Reels, 300 News)" >> release_notes.md
         echo "- ✅ Dark/Light Theme" >> release_notes.md
-        echo "- ✅ Multi Language Support" >> release_notes.md
         echo "- ✅ Messenger Integration" >> release_notes.md
         echo "- ✅ Background Playback" >> release_notes.md
+        echo "- ✅ Download Manager" >> release_notes.md
         echo "- ✅ Customizable UI" >> release_notes.md
         echo "" >> release_notes.md
         echo "## Developer" >> release_notes.md
